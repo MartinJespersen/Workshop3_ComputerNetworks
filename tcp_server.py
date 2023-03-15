@@ -1,6 +1,7 @@
 # first of all import the socket library
 import socket	
-import time		
+import time	
+import sys	
 
 # next create a socket object
 s = socket.socket()		
@@ -8,7 +9,7 @@ print ("Socket successfully created")
 
 # reserve a port on your computer in our
 # case it is 12345 but it can be anything
-port = 12345			
+port = int(sys.argv[1])			
 
 # Next bind to the port
 # we have not typed any ip in the ip field
