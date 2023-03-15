@@ -4,6 +4,7 @@ import datetime
 
 address = sys.argv[1]
 port = int(sys.argv[2])
+
 s = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
 s.sendto(''.encode(), (address, port))
 msg, addressport = s.recvfrom(4)

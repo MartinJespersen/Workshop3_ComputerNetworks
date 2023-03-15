@@ -6,12 +6,8 @@ s = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
 
 port = int(sys.argv[1])
 
-# Bind to address and ip
-
 s.bind(('', port))
-
 print("UDP server up and listening")
-
 
 while(True):
     msg, address = s.recvfrom(1)
