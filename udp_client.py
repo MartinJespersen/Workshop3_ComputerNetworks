@@ -1,6 +1,6 @@
 import socket
 import sys
-import datetime
+from datetime import datetime, timedelta, timezone
 
 address = sys.argv[1]
 port = int(sys.argv[2])
@@ -11,6 +11,6 @@ msg, addressport = s.recvfrom(4)
 
 print(msg)
 msg_int = int.from_bytes(msg, 'big')
-print(msg_int)
-dt = datetime.datetime.fromtimestamp(msg_int)
-print(dt)
+time_delta = timedelta(seconds=msg_int)
+current_datetime = time_delta + datetime(1900, 1, 1, 0, 0, tzinfo=timezone.utc)
+print(current_datetime)
